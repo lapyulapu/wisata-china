@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore China</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#1e6fd9;
+  --green:#2fa67a;
+  --beige:#f3efe9;
+  --dark:#1f2937;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--beige);
+  color:var(--dark);
+}
+
+section{ padding:80px 8%; }
+
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+}
+
+.hero h1{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:650px;
+  margin:0 auto 30px;
+}
+
+.btn{
+  padding:14px 36px;
+  background:var(--green);
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:var(--blue);
+  transform:translateY(-3px);
+}
+
+/* ===== DESTINASI ===== */
+h2{
+  text-align:center;
+  font-size:2.2rem;
+  margin-bottom:40px;
+}
+
+.destinasi-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,.1);
+  transition:.4s;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:20px;
+}
+
+.card-body span{
+  color:var(--green);
+  font-size:.9rem;
+}
+
+/* ===== ABOUT ===== */
+.about{
+  background:#fff;
+  padding:60px;
+  border-radius:30px;
+  max-width:1000px;
+  margin:auto;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.about.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== GALERI ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:20px;
+  transition:.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* ===== TESTIMONI ===== */
+.testimoni{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.testi-card{
+  background:#fff;
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.testi-card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.testi-card img{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:15px;
+}
+
+.rating{ color:#fbbf24; }
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--dark);
+  color:#fff;
+  text-align:center;
+  padding:40px 8%;
+}
+
+footer a{
+  color:var(--green);
+  margin:0 10px;
+  text-decoration:none;
+}
+
+@media(max-width:768px){
+  .hero h1{ font-size:2.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Explore China</h1>
+    <p>Jelajahi keindahan wisata China dari keajaiban sejarah hingga alam yang menakjubkan.</p>
+    <button class="btn" onclick="scrollToDestinasi()">Explore Now</button>
+  </div>
+</section>
+
+<!-- DESTINASI -->
+<section id="destinasi">
+<h2>Destinasi Wisata Paling Populer di China</h2>
+<div class="destinasi-grid">
+
+  <div class="card fade">
+    <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=800&q=80">
+    <div class="card-body">
+      <h3>Forbidden City</h3>
+      <span>Beijing</span>
+    </div>
+  </div>
+
+  <div class="card fade">
+    <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=800&q=80">
+    <div class="card-body">
+      <h3>Li River</h3>
+      <span>Guilin</span>
+    </div>
+  </div>
+
+  <div class="card fade">
+    <img src="https://images.unsplash.com/photo-1526481280698-8fcc13fd36a8?auto=format&fit=crop&w=800&q=80">
+    <div class="card-body">
+      <h3>Avatar Mountains</h3>
+      <span>Zhangjiajie</span>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section>
+<div class="about fade">
+<h2>Tentang Wisata China</h2>
+<p>
+China memiliki destinasi wisata kelas dunia yang memadukan sejarah kuno, keindahan alam,
+dan budaya yang kaya. Dari Tembok Besar China hingga pegunungan Zhangjiajie,
+wisata China menawarkan pengalaman visual yang autentik dan Instagramable.
+</p>
+</div>
+</section>
+
+<!-- GALERI -->
+<section>
+<h2>Galeri Wisata China</h2>
+<div class="gallery">
+  <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80">
+  <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80">
+  <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=800&q=80">
+  <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=800&q=80">
+</div>
+</section>
+
+<!-- TESTIMONI -->
+<section>
+<h2>Testimoni Pengunjung</h2>
+<div class="testimoni">
+  <div class="testi-card fade">
+    <img src="https://randomuser.me/api/portraits/women/66.jpg">
+    <h4>Li Na</h4>
+    <div class="rating">★★★★★</div>
+    <p>Wisata China luar biasa indah dan website ini tampilannya rapi banget.</p>
+  </div>
+  <div class="testi-card fade">
+    <img src="https://randomuser.me/api/portraits/men/48.jpg">
+    <h4>Ahmad Fauzi</h4>
+    <div class="rating">★★★★★</div>
+    <p>Semua foto jelas dan relevan, enak dilihat dan informatif.</p>
+  </div>
+</div>
+</section>
+
+<footer>
+<p>
+<a href="#">Instagram</a> |
+<a href="#">TikTok</a> |
+<a href="#">YouTube</a>
+</p>
+<p>© 2026 Explore China</p>
+</footer>
+
+<script>
+function scrollToDestinasi(){
+  document.getElementById("destinasi").scrollIntoView({behavior:"smooth"});
+}
+
+const fadeEls=document.querySelectorAll(".fade");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:0.2});
+
+fadeEls.forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
